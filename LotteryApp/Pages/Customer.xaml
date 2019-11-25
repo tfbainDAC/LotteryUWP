@@ -7,19 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
+        <Image Source="../Images/lottoBallsL.jpg"/>
+        <Grid HorizontalAlignment="Center" Width="600">
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+          
+            </Grid.RowDefinitions>
         <!-- column 0, row 0, customer heading, merges two columns-->
-        <Border Background="#2f5cb6" Grid.ColumnSpan="2"/>
+        <Border Background="#2f5cb6"/>
+
         <!-- column 0, row 0-->
         <!-- column 0, row 1, customer name-->
         <Border Grid.Row ="1" Background="#1f3d7a"/>
@@ -28,8 +32,14 @@
         <!-- column 0, row 2, customer email-->
         <Border Grid.Row="3" Background="#152951"/>
         <!-- column 0/1 row 0-->
-        <TextBlock Foreground="White" FontSize="25" Text="Customer"/>
-        <TextBlock Grid.Row="1" Foreground="White" FontSize="25" Text="Name"/>
-
+        <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Customer"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
+            <TextBox HorizontalAlignment="Left" Text="Enter Customer Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        </StackPanel>
+            <TextBlock Grid.Row="2" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
+        <TextBlock Grid.Row="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
+            
+        </Grid>
     </Grid>
 </Page>

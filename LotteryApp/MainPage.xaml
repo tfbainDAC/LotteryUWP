@@ -62,7 +62,7 @@
 
                 <StackPanel Orientation="Horizontal">
 
-                    <Button Click="OpenSplitViewClick" Background="Transparent" BorderThickness="0" Width="48" Height="48" VerticalAlignment="Center" Foreground="White"  >
+                    <Button Click="OpenSplitViewClick" Background="Transparent" BorderThickness="0" Width="88" Height="48" VerticalAlignment="Center" Foreground="White"  >
                         <Button.Content>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="" />
                         </Button.Content>
