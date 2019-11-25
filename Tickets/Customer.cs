@@ -13,7 +13,7 @@ namespace Tickets
 
         public string Phone { get; set; }
 
-        public string email { get; set; }
+        public string Email { get; set; }
 
         // constructor using an expression body, this is a shorthand version
         public Customer(int customerId) => custID = customerId;

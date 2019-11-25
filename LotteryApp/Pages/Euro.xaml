@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Euro"/>
+        <TextBlock FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Euros"/>
     </Grid>
 </Page>

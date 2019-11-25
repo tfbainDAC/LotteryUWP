@@ -32,7 +32,7 @@ namespace Tickets
             StringBuilder sb = new StringBuilder();
 
             sb.Append(customer.Name);
-            sb.Append(customer.email);
+            sb.Append(customer.Email);
             sb.Append(day);
             sb.Append(Numbers[1]);
             sb.Append(BonusBall);
