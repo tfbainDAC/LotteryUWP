@@ -8,8 +8,44 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="InnerGrid.Width"
+                                Value="500" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Compact">
+                    <!--<VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>-->
+                    <VisualState.Setters>
+                        <!--<Setter Target="mainSplitView.DisplayMode"
+                                Value="CompactOverlay" />
+                        <Setter Target="mainSplitView.IsPaneOpen"
+                                Value="False" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--<Setter Target="mainSplitView.DisplayMode"
+                                Value="CompactInline" />
+                        <Setter Target="mainSplitView.IsPaneOpen"
+                                Value="True" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Image Source="../Images/lottoBallsL.jpg"/>
-        <Grid HorizontalAlignment="Center" Width="600">
+
+        <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -35,17 +71,23 @@
         <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
-            <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" Width="560"
+            <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" 
+                     Width="{Binding ElementName=InnerGrid, Path=Width}"
+                     Margin="10"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
         </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
-                <TextBox x:Name="txtName" HorizontalAlignment="center" PlaceholderText="Enter Customer Name" FontSize ="20" Width="560"
-                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
+                <TextBox x:Name="txtName" HorizontalAlignment="center" PlaceholderText="Enter Customer Name" FontSize ="20" 
+                         Width="{Binding ElementName=InnerGrid, Path=Width}"
+                         Margin="10" 
+                         Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
             </StackPanel>
             <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
-                <TextBox x:Name="txtPhone" HorizontalAlignment="Center" PlaceholderText="Enter Customer Phone" FontSize ="20" Width="560"
+                <TextBox x:Name="txtPhone" HorizontalAlignment="Center" PlaceholderText="Enter Customer Phone" FontSize ="20" 
+                          Width="{Binding ElementName=InnerGrid, Path=Width}"
+                         Margin="10"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
