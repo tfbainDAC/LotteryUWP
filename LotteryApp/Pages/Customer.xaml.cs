@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Tickets;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,8 +30,8 @@ namespace LotteryApp.Pages
 
         void OnClick_btnCreate(object sender, RoutedEventArgs e)
         {
-            btnCreate.Foreground = new SolidColorBrush(Windows.UI.Colors.Blue);
-            txtEmail.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
+            Tickets.Customer tempCust = new Tickets.Customer(txtName.ToString(), txtPhone.ToString(), txtEmail.ToString());
+            App.currentCustomer = tempCust;      
         }
         void OnClick_btnCancel(object sender, RoutedEventArgs e)
         {

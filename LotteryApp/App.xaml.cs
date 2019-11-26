@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Tickets;
 
 namespace LotteryApp
 {
@@ -26,6 +27,7 @@ namespace LotteryApp
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        public static Tickets.Customer currentCustomer = new Tickets.Customer();
         public App()
         {
             this.InitializeComponent();
