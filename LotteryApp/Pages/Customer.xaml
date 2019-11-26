@@ -26,19 +26,29 @@
 
         <!-- column 0, row 0-->
         <!-- column 0, row 1, customer name-->
-        <Border Grid.Row ="1" Background="#1f3d7a"/>
+        <Border Grid.Row ="1" Background="#4FB071"/>
         <!-- column 0, row 1, customer phone-->
-        <Border Grid.Row ="2" Background="#1f3d7a"/>
+        <Border Grid.Row ="2" Background="#714fb0"/>
         <!-- column 0, row 2, customer email-->
-        <Border Grid.Row="3" Background="#152951"/>
+        <Border Grid.Row="3" Background="#b0714f"/>
         <!-- column 0/1 row 0-->
         <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Customer"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
-            <TextBox HorizontalAlignment="Left" Text="Enter Customer Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
+            <TextBox HorizontalAlignment="Left" Text="Enter Customer Email" FontSize ="20" Width="680"
+                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
         </StackPanel>
-            <TextBlock Grid.Row="2" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
-        <TextBlock Grid.Row="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
+                <TextBox HorizontalAlignment="Left" Text="Enter Customer Name" FontSize ="20" Width="680"
+                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
+            </StackPanel>
+            <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
+                <TextBox HorizontalAlignment="Left" Text="Enter Customer Phone" FontSize ="20" Width="680"
+                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
+            </StackPanel>
+            
             
         </Grid>
     </Grid>
