@@ -19,36 +19,39 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-          
+            <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
         <!-- column 0, row 0, customer heading, merges two columns-->
-        <Border Background="#2f5cb6"/>
+        <Border Grid.Row = "0" Background="#4F5EB0"/>
 
-        <!-- column 0, row 0-->
-        <!-- column 0, row 1, customer name-->
+         <!-- column 0, row 1, customer name-->
         <Border Grid.Row ="1" Background="#4FB071"/>
         <!-- column 0, row 1, customer phone-->
         <Border Grid.Row ="2" Background="#714fb0"/>
         <!-- column 0, row 2, customer email-->
         <Border Grid.Row="3" Background="#b0714f"/>
-        <!-- column 0/1 row 0-->
-        <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Text="Customer"/>
+            <Border Grid.Row = "4" Background="#4F5EB0"/>
+            <!-- column 0/1 row 0-->
+        <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
-            <TextBox HorizontalAlignment="Left" Text="Enter Customer Email" FontSize ="20" Width="680"
+            <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" Width="560"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
         </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
-                <TextBox HorizontalAlignment="Left" Text="Enter Customer Name" FontSize ="20" Width="680"
+                <TextBox x:Name="txtName" HorizontalAlignment="center" PlaceholderText="Enter Customer Name" FontSize ="20" Width="560"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
             </StackPanel>
             <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
-                <TextBox HorizontalAlignment="Left" Text="Enter Customer Phone" FontSize ="20" Width="680"
+                <TextBox x:Name="txtPhone" HorizontalAlignment="Center" PlaceholderText="Enter Customer Phone" FontSize ="20" Width="560"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
             </StackPanel>
-            
+            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
+                <Button x:Name="btnCreate" Click="OnClick_btnCreate" FontSize ="25" Margin="3" Content="Create"/>
+                <Button x:Name="btnCancel" Click="OnClick_btnCancel" FontSize ="25" Margin="3" Content="Cancel"/>
+            </StackPanel>
             
         </Grid>
     </Grid>

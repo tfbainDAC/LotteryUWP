@@ -26,5 +26,17 @@ namespace LotteryApp.Pages
         {
             this.InitializeComponent();
         }
+
+        void OnClick_btnCreate(object sender, RoutedEventArgs e)
+        {
+            btnCreate.Foreground = new SolidColorBrush(Windows.UI.Colors.Blue);
+            txtEmail.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
+        }
+        void OnClick_btnCancel(object sender, RoutedEventArgs e)
+        {
+            txtEmail.Text = "";
+            txtName.Text = "";
+            txtPhone.Text = "";
+        }
     }
 }
