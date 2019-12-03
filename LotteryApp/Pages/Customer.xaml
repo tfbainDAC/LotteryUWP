@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
+    <Grid x:Name="outerGrid">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="Narrow">
@@ -16,13 +16,14 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="InnerGrid.Width"
-                                Value="500" />
+                                Value="{Binding ElementName=outerGrid, Path=Width}"
+                                 />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Compact">
-                    <!--<VisualState.StateTriggers>
+                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>-->
+                    </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--<Setter Target="mainSplitView.DisplayMode"
                                 Value="CompactOverlay" />
@@ -32,13 +33,13 @@
                 </VisualState>
                 <VisualState x:Name="Wide">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                        <AdaptiveTrigger MinWindowWidth="1920"/><!--1920-->
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--<Setter Target="mainSplitView.DisplayMode"
-                                Value="CompactInline" />
-                        <Setter Target="mainSplitView.IsPaneOpen"
-                                Value="True" />-->
+                        <Setter Target="txtEmail.Width"
+                                Value="300" />
+                        <Setter Target="sp.Orientation"
+                                Value="Horizontal" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -69,7 +70,7 @@
             <Border Grid.Row = "4" Background="#4F5EB0"/>
             <!-- column 0/1 row 0-->
         <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel x:Name="sp" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
             <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" 
                      Width="{Binding ElementName=InnerGrid, Path=Width}"
