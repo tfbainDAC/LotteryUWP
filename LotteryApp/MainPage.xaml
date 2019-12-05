@@ -8,104 +8,63 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+    <Grid>
+        <NavigationView x:Name="NavView"
+                         Loaded="NavView_Loaded"
+                         ItemInvoked="NavView_ItemInvoked"
+                         BackRequested="NavView_BackRequested">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader x:Name="MainPagesHeader"
+                                           Content="Main pages"/>
+                <NavigationViewItem Tag="cust" Content="Cust">
+                    <NavigationViewItem.Icon>
+                        <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
+                        <!--segoe mdl2 assets is where the hex code comes from either use &#x or \u in front in c#-->
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
+                        <!--<BitmapIcon UriSource="Assets/CustIcon.jfif"/>-->
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="lotto" Content="Lotto">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7FC;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="euro" Icon="Audio" Content="Euro"/>
+            </NavigationView.MenuItems>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+            <NavigationView.AutoSuggestBox>
+                <!-- See AutoSuggestBox documentation for
+                 more info about how to implement search. -->
+                <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>
+
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed"/>
+            </ScrollViewer>
+        </NavigationView>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="Narrow">
+                <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
+                        <AdaptiveTrigger
+                        MinWindowWidth="{x:Bind NavView.CompactModeThresholdWidth}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="mainSplitView.DisplayMode"
-                                Value="Overlay" />
-                        <Setter Target="mainSplitView.IsPaneOpen"
-                                Value="False" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Compact">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="mainSplitView.DisplayMode"
-                                Value="CompactOverlay" />
-                        <Setter Target="mainSplitView.IsPaneOpen"
-                                Value="False" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Wide">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1920"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="mainSplitView.DisplayMode"
-                                Value="CompactInline" />
-                        <Setter Target="mainSplitView.IsPaneOpen"
-                                Value="True" />
+                        <!-- Remove the next 3 lines for left-only navigation. -->
+                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
+                        <Setter Target="NavViewSearchBox.Width" Value="200"/>
+                        <Setter Target="MainPagesHeader.Visibility" Value="Collapsed"/>
+                        <!-- Leave the next line for left-only navigation. -->
+                        <Setter Target="ContentFrame.Padding" Value="24,0,24,24"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <Border RequestedTheme="Dark" Height="60" VerticalAlignment="Top" Background="#FF262352">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Orientation="Horizontal">
-
-                    <Button Click="OpenSplitViewClick" Background="Transparent" BorderThickness="0" Width="88" Height="48" VerticalAlignment="Center" Foreground="White"  >
-                        <Button.Content>
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="" />
-                        </Button.Content>
-                    </Button>
-
-                </StackPanel>
-
-            </Grid>
-
-        </Border>
-
-        <SplitView Grid.Row="1" RequestedTheme="Dark" x:Name="mainSplitView" PaneBackground="#FF262352" OpenPaneLength="200" CompactPaneLength="48">
-
-            <SplitView.Pane>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-
-                    <StackPanel RequestedTheme="Dark" Margin="0,12,0,0" Grid.Row="1" VerticalAlignment="Stretch">
-                        <HyperlinkButton Click="OnGoCustomerClick" Margin="10,5" Foreground="White" Content="Customer"/>
-                        <HyperlinkButton Click="OnGoEuroClick" Margin="10,5" Foreground="White" Content="Euro"/>
-                        <HyperlinkButton Click="OnGoLottoClick" Margin="10,5" Foreground="White" Content="Lotto"/>
-                        <HyperlinkButton x:Name="btnForward" Click="OnGoForwardClick" Margin="10,5" Foreground="White" Content=">"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="4" >
-                        <Button Click="OnGoBackClick" x:Name="btnBack" FontSize="24" Background="{x:Null}"  Content="&#xE0A6;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                </Grid>
-            </SplitView.Pane>
-            <SplitView.Content>
-
-                <Frame x:Name="mainFrame"  />
-
-            </SplitView.Content>
-        </SplitView>
-
     </Grid>
 
 </Page>

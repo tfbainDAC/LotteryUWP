@@ -139,6 +139,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\custIcon.jfif" />
+    <Content Include="Assets\EuroIcon.png" />
     <Content Include="Images\lottoBalls.jpg" />
     <Content Include="Images\lottoBallsL.jpg" />
     <Content Include="Properties\Default.rd.xml" />
@@ -175,6 +177,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
