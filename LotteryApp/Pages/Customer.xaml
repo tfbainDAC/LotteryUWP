@@ -98,7 +98,7 @@
                 </Border.Background>
             </Border>
             <!-- column 0/1 row 0-->
-            <TextBlock Foreground="#FF191818" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
+            <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
             <StackPanel x:Name="sp" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
                 <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" 
