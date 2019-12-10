@@ -8,47 +8,48 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid x:Name="outerGrid">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="Narrow">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="InnerGrid.Width"
-                                Value="{Binding ElementName=outerGrid, Path=Width}"
-                        />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Compact">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--<Setter Target="mainSplitView.DisplayMode"
-                                Value="CompactOverlay" />
-                        <Setter Target="mainSplitView.IsPaneOpen"
-                                Value="False" />-->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Wide">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1920"/>
-                        <!--1920-->
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="txtEmail.Width"
-                                Value="300" />    <!-- width does not  change, ******  to fix -->
-                        <Setter Target="sp.Orientation"
-                                Value="Horizontal" />  <!-- orientation changes -->
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        
         <Image Source="../Images/lottoBallsL.jpg"/>
 
         <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">
-
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="Narrow">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                          <Setter Target="InnerGrid.Width"
+                                Value="{Binding ElementName=outerGrid, Path=Width}"
+                        />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Compact">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="720" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="InnerGrid.Width"
+                                Value="{Binding ElementName=outerGrid, Path=Width}"
+                        />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Wide">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1020"/>
+                            <!--1920-->
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="txtEmail.Width"
+                                Value="800" />
+                            <!-- width does not  change, ******  to fix -->
+                            <Setter Target="sp.Orientation"
+                                Value="Horizontal" />
+                            <!-- orientation changes -->
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
