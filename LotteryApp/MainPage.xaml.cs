@@ -54,7 +54,7 @@ namespace LotteryApp
                 Icon = new SymbolIcon((Symbol)0xF1AD),
                 Tag = "content"
             });
-            // _pages.Add(("content", typeof(MyContentPage)));   THIS WOULD ADD A NEW PAGE IN CODE
+             _pages.Add(("content", typeof(Content)));   //****THIS WOULD ADD A NEW PAGE IN CODE
 
             // Add handler for ContentFrame navigation.
             ContentFrame.Navigated += On_Navigated;
