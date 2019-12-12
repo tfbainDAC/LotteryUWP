@@ -22,20 +22,6 @@
                                 Value="auto"/>
                         <Setter Target="InnerGrid.HorizontalAlignment"
                                 Value="stretch"/>
-                       
-                        <!-- changes width of the grid to the same as the text box-->
-                       <!-- <Setter Target="InnerGrid.width"
-                                Value="auto"/>responds but same size as textbox-->
-                        <!--<Setter Target="InnerGrid.Width"
-                        Value="{Binding ElementName=outerGrid, Path=Width}"/> responds but same size as text box-->
-                        <!--<Setter Target="InnerGrid.Width"
-                        Value="{Binding ElementName=outerGrid, Path=MaxWidth}"/>responds but same size as text box-->
-                        <!--<Setter Target="InnerGrid.Width"
-                        Value = "*"/> does not work at all -->
-                        <!--<Setter Target="InnerGrid.Width"
-                        Value = "Window.Current.Bounds"/> -->
-                          
-                        
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="compact">
