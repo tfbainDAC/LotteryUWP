@@ -16,11 +16,16 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!-- changes colour of email to yellow -->
-                        <!--<Setter Target="txtEmail.Background"
-                                Value="Yellow"/>-->
-                        <!-- changes width of the grid to the same as the text box-->
+                        <Setter Target="txtEmail.Background"
+                                Value="Yellow"/>
                         <Setter Target="InnerGrid.Width"
-                                Value="auto"/><!--responds but same size as textbox-->
+                                Value="auto"/>
+                        <Setter Target="InnerGrid.HorizontalAlignment"
+                                Value="stretch"/>
+                       
+                        <!-- changes width of the grid to the same as the text box-->
+                       <!-- <Setter Target="InnerGrid.width"
+                                Value="auto"/>responds but same size as textbox-->
                         <!--<Setter Target="InnerGrid.Width"
                         Value="{Binding ElementName=outerGrid, Path=Width}"/> responds but same size as text box-->
                         <!--<Setter Target="InnerGrid.Width"
@@ -38,19 +43,30 @@
                         <AdaptiveTrigger MinWindowWidth="640"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!-- changes colour of text box to blue -->
-                        <!--<Setter Target="txtEmail.Background"
-                                Value="Blue"/>-->
-                  </VisualState.Setters>
+                        <!-- changes colour of text box to blue for testing of correct trigger-->
+
+                        <Setter Target="txtEmail.Background"
+                                Value="blue"/>
+                        <Setter Target="InnerGrid.Width"
+                                Value="600"/>
+                        <Setter Target="InnerGrid.HorizontalAlignment"
+                                Value="center"/>
+
+                    </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="wide">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                        <AdaptiveTrigger MinWindowWidth="1020"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!-- puts the text box to the right of the image -->
-                        <!--<Setter Target="txtEmail.Background"
-                                Value="Orange"/>-->
+                        <!-- changes colour of text box to orange for testing of correct trigger-->
+                        <Setter Target="txtEmail.Background"
+                                Value="Orange"/>
+                        <Setter Target="InnerGrid.Width"
+                                Value="600"/>
+                        <Setter Target="InnerGrid.HorizontalAlignment"
+                                Value="center"/>
+
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -58,9 +74,9 @@
         
         <Image Source="../Images/lottoBallsL.jpg"/>
 
-        <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">
-            
-            <Grid.ColumnDefinitions>
+       <!-- <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">-->
+        <Grid x:Name="InnerGrid" >
+                <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
