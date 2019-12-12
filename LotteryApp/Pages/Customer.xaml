@@ -8,48 +8,58 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid x:Name="outerGrid">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- changes colour of email to yellow -->
+                        <!--<Setter Target="txtEmail.Background"
+                                Value="Yellow"/>-->
+                        <!-- changes width of the grid to the same as the text box-->
+                        <Setter Target="InnerGrid.Width"
+                                Value="auto"/><!--responds but same size as textbox-->
+                        <!--<Setter Target="InnerGrid.Width"
+                        Value="{Binding ElementName=outerGrid, Path=Width}"/> responds but same size as text box-->
+                        <!--<Setter Target="InnerGrid.Width"
+                        Value="{Binding ElementName=outerGrid, Path=MaxWidth}"/>responds but same size as text box-->
+                        <!--<Setter Target="InnerGrid.Width"
+                        Value = "*"/> does not work at all -->
+                        <!--<Setter Target="InnerGrid.Width"
+                        Value = "Window.Current.Bounds"/> -->
+                          
+                        
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="compact">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- changes colour of text box to blue -->
+                        <!--<Setter Target="txtEmail.Background"
+                                Value="Blue"/>-->
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- puts the text box to the right of the image -->
+                        <!--<Setter Target="txtEmail.Background"
+                                Value="Orange"/>-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         
         <Image Source="../Images/lottoBallsL.jpg"/>
 
         <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup>
-                    <VisualState x:Name="Narrow">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="0" />
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
-                          <Setter Target="InnerGrid.Width"
-                                Value="{Binding ElementName=outerGrid, Path=Width}"
-                        />
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="Compact">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="720" />
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
-                            <Setter Target="InnerGrid.Width"
-                                Value="{Binding ElementName=outerGrid, Path=Width}"
-                        />
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="Wide">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="1020"/>
-                            <!--1920-->
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
-                            <Setter Target="txtEmail.Width"
-                                Value="800" />
-                            <!-- width does not  change, ******  to fix -->
-                            <Setter Target="sp.Orientation"
-                                Value="Horizontal" />
-                            <!-- orientation changes -->
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -105,7 +115,8 @@
                 <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" 
                      Width="{Binding ElementName=InnerGrid, Path=Width}"
                      Margin="10"
-                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" />
+                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="White" BorderBrush="White" />
+            
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
