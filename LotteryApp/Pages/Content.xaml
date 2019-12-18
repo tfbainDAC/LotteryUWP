@@ -24,6 +24,7 @@
 
             <TextBlock Text="{x:Bind colorComboBox.SelectedIndex, Mode=OneWay}"/>
             <TextBlock Text="{x:Bind colorComboBox.SelectedItem, Mode=OneWay}"/>
+            <TextBox x:Name ="txtNumber" BeforeTextChanging="txtNumber_OnBeforeTextChanging" />
         </StackPanel>
     </Grid>
 </Page>

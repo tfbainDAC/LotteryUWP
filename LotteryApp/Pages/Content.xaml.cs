@@ -49,5 +49,10 @@ namespace LotteryApp.Pages
             }
             colorRectangle.Fill = new SolidColorBrush(color);
         }
+        private void txtNumber_OnBeforeTextChanging(TextBox sender,
+   TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
     }
 }
