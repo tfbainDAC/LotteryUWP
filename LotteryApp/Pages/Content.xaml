@@ -1,15 +1,56 @@
-﻿<Page
+﻿<!-- note https://github.com/windows-toolkit/WindowsCommunityToolkit, has the project-->
+<!--    xmlns:common="using:LotteryApp. -->
+    <Page
     x:Class="LotteryApp.Pages.Content"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LotteryApp.Pages"
+    xmlns:common="using:LotteryApp.Common"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+   <!-- x:Class="LotteryApp.Pages.Content" removed from page first attribute-->
+    <Page.Resources>
+        <common:BoolStringConverter x:Key="StringFormatConverter" />
+        <Style x:Key="TextBoxRegexStyle"
+           TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <DataTemplate x:Key="HeaderTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding}"
+                   TextWrapping="WrapWholeWords" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row ="0" Grid.ColumnSpan="2" Background="LightSeaGreen"/>
+        <Border Grid.Row ="2" Grid.ColumnSpan="2" Background="LightSeaGreen"/>
+        <Border Grid.Row ="4" Grid.ColumnSpan="2" Background="LightSeaGreen"/>
+        <Border Grid.Row ="1" Grid.ColumnSpan="2" Background="LightGray"/>
+        <Border Grid.Row ="3" Grid.ColumnSpan="2" Background="LightGray"/>
+        <Border Grid.Row ="5" Grid.ColumnSpan="2" Background="LightGray"/>
         <StackPanel>
+            <TextBlock HorizontalTextAlignment="center" Text="ComboBox control" FontSize="20"/>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1">
             <ComboBox x:Name="colorComboBox" Width="200"
               Header="Colors" PlaceholderText="Pick a color"
               SelectionChanged="ColorComboBox_SelectionChanged">
@@ -24,7 +65,37 @@
 
             <TextBlock Text="{x:Bind colorComboBox.SelectedIndex, Mode=OneWay}"/>
             <TextBlock Text="{x:Bind colorComboBox.SelectedItem, Mode=OneWay}"/>
-            <TextBox x:Name ="txtNumber" BeforeTextChanging="txtNumber_OnBeforeTextChanging" />
         </StackPanel>
+        <TextBox x:Name ="txtNumber"  Grid.Column="1" Grid.Row="1" BeforeTextChanging="txtNumber_OnBeforeTextChanging" PlaceholderText="Enter any number" />
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="These controls use the  extension TextBoxRegex which is in the Microsoft.Toolkit.UWP.UI found in nuGET packages" TextWrapping="Wrap"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" >
+        <TextBox  extensions:TextBoxRegex.Regex="^\s*\+?\s*([0-9][\s-]*){9,}$" />
+
+        <TextBox  extensions:TextBoxRegex.ValidationMode="Forced"
+            extensions:TextBoxRegex.ValidationType="PhoneNumber"
+            Text="+61616161611" />
+
+        <TextBox  extensions:TextBoxRegex.ValidationType="Email"   />
+
+        <TextBox  extensions:TextBoxRegex.ValidationMode="Forced"
+            extensions:TextBoxRegex.ValidationType="Decimal" />
+        </StackPanel>
+  
+        <StackPanel Grid.Row="3" Grid.Column="1"
+                        Margin="10,10,10,0">
+            <TextBox Name="EmailValidator"
+                 extensions:TextBoxRegex.ValidationType="Email"
+                 Header="Text box with ValidationType=Email, validation occurs on TextChanged"
+                 HeaderTemplate="{StaticResource HeaderTemplate}"
+                 Style="{StaticResource TextBoxRegexStyle}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Is Valid: " />
+                <!--<TextBlock Text="{Binding (extensions:TextBoxRegex.IsValid),  ElementName=EmailValidator}" />-->
+                <TextBlock Text="{Binding (extensions:TextBoxRegex.IsValid), ElementName=EmailValidator, Converter={StaticResource StringFormatConverter}}" />
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>
