@@ -66,6 +66,9 @@
             <TextBlock Text="{x:Bind colorComboBox.SelectedIndex, Mode=OneWay}"/>
             <TextBlock Text="{x:Bind colorComboBox.SelectedItem, Mode=OneWay}"/>
         </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="This field only allows the user to type numeric data.  Uses standard TextBox and event OnBeforeTextChanging to validate" TextWrapping="Wrap"/>
+        </StackPanel>    
         <TextBox x:Name ="txtNumber"  Grid.Column="1" Grid.Row="1" BeforeTextChanging="txtNumber_OnBeforeTextChanging" PlaceholderText="Enter any number" />
         <StackPanel Grid.Row="2">
             <TextBlock Text="These controls use the  extension TextBoxRegex which is in the Microsoft.Toolkit.UWP.UI found in nuGET packages" TextWrapping="Wrap"/>
@@ -82,7 +85,12 @@
         <TextBox  extensions:TextBoxRegex.ValidationMode="Forced"
             extensions:TextBoxRegex.ValidationType="Decimal" />
         </StackPanel>
-  
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Email Validation" TextWrapping="Wrap"/>
+            <TextBlock Text="uses extension TextBoxRegex which is in the Microsoft.Toolkit.UWP.UI found in nuGET packages" TextWrapping="Wrap"/>
+            <TextBlock Text="Also created folder Common with cs file, code used for isValid which was found in SampleApp see tutorial" TextWrapping="Wrap"/>
+            <TextBlock Text="" TextWrapping="Wrap"/>
+        </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1"
                         Margin="10,10,10,0">
             <TextBox Name="EmailValidator"
