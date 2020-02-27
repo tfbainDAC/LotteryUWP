@@ -38,7 +38,7 @@ namespace Tickets
         //public List<string> contacts { get; set;}   //syntax for a list named contacts
         public Ticket() // CONSTRUCTOR
         {
-
+            dateOfPurchase = DateTime.Now;
         }
 
         public override abstract string ToString(); // This overrides the standard String ToString() class.

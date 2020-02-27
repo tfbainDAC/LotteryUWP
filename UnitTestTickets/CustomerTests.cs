@@ -9,6 +9,22 @@ namespace UnitTestTickets
     public class CustomerTests
     {
         [TestMethod]
+        public void TestCustomer()
+        {
+            //arrange
+            String name = "Young";
+            String phone = "09876765";
+            String email = "Young.Hat @Dun.ac.uk";
+            Customer testCust = new Customer(name, phone, email);
+            string expected = name;
+            //act
+            string response = testCust.Name;
+
+            //assert
+            Assert.AreEqual(response, expected);
+        }
+
+        [TestMethod]
         public void TestCustomerToString()
         {
             //arrange
