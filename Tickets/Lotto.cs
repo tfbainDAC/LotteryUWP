@@ -26,6 +26,10 @@ namespace Tickets
             }
         }
         public string retailerCode { get; set; }
+
+        public LottoT()
+        {
+        }
         public override string ToString() // This overrides the ToString() class in Ticket.
         {
             string message;

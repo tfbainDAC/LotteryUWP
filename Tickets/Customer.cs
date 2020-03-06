@@ -31,7 +31,8 @@ namespace Tickets
 
         public override string ToString() // This overrides the standard String ToString() class.
         {
-            return String.Format("Name: {0} \nPhone Number: {1} \n", Name, Phone);
+            return String.Format("Name: {0} \nPhone Number: {1} \nEmail: {2}\n", Name, Phone, Email);
         }
+
     }
 }

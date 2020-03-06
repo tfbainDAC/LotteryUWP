@@ -16,17 +16,22 @@ namespace UnitTestTickets
             //arrange
             // Test the date on the ticket is correct
             DateTime todaysDate = new DateTime();
-            string today = todaysDate.ToString("MMMM dd");
-            LottoT lotTicket = new LottoT();
-            string expected = todaysDate.ToString("MMMM dd");
+            todaysDate = DateTime.Now;
+            string expected = todaysDate.ToString("MMMM dd");  // set up todays date in format MMMM dd
 
             //act
-            string response = lotTicket.dateOfPurchase.ToString("MMMM dd");
+            LottoT lotTicket = new LottoT();    // create new lottery ticket, this should show todays date
+            string response = lotTicket.DateOfPurchase.ToString("MMMM dd");  // receive date in format MMMM dd
 
             //assert
-            Assert.AreEqual(response, expected);
-            /*******  Note this will fail as the sub class does not call the baseclass constructor */
-            /****** add this into notes ****/
+            Assert.AreEqual(expected, response);
+ 
+        }
+
+        [TestMethod]
+        public void TestSortedNumbers()
+        {
+
         }
     }
 }
