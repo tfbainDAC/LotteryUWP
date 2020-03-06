@@ -29,9 +29,18 @@ namespace UnitTestTickets
         }
 
         [TestMethod]
-        public void TestSortedNumbers()
+        public void TestBallNumber()
         {
+            //arrange
+            LottoT lotTicket = new LottoT();
+            int[] testNumbers = { 77, 88, 54, 3, 4, 5 };
 
+            //act
+            lotTicket.Numbers = testNumbers;
+
+            //assert   -  want to check this throws an exception
+            Assert.AreNotEqual(testNumbers, lotTicket.Numbers);  
+            //AssertFailedException.Equals(testNumbers, lotTicket.Numbers);
         }
     }
 }
