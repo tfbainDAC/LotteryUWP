@@ -33,12 +33,12 @@ namespace Tickets
 
         public string day;  // This could be a dictionary object
 
-        public DateTime dateOfPurchase; // date of Purchase
+        public DateTime DateOfPurchase { get; set; } // date of Purchase
 
         //public List<string> contacts { get; set;}   //syntax for a list named contacts
         public Ticket() // CONSTRUCTOR
         {
-            dateOfPurchase = DateTime.Now;
+            DateOfPurchase = DateTime.Now;
         }
 
         public override abstract string ToString(); // This overrides the standard String ToString() class.

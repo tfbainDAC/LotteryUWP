@@ -21,7 +21,7 @@ namespace UnitTestTickets
             string response = testCust.Name;
 
             //assert
-            Assert.AreEqual(response, expected);
+            Assert.AreEqual(expected, response);
         }
 
         [TestMethod]
@@ -33,12 +33,13 @@ namespace UnitTestTickets
             String Email = "Young.Hat @Dun.ac.uk";
             Customer testCust = new Customer(Name, Phone, Email);
             string expected = String.Format("Name: {0} \nPhone Number: {1} \n" +
-                                             "Email: {1} \n", Name, Phone, Email);
+                                             "Email: {2}\n", Name, Phone, Email);
+
             //act
             string response = testCust.ToString();
 
             //assert
-            Assert.AreEqual(response, expected);
+            Assert.AreEqual(expected, response);
 
         }
     }
