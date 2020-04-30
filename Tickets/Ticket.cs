@@ -20,10 +20,10 @@ namespace Tickets
                 Boolean bOK = true;
                 foreach (int number in value)  // value is the numbers array being set through the object
                 {
-                    if (number < 0 | number > 49)  // use single | as we want both conditoins to be tested
+                    if (number < 0 || number > 49)  
                     {
                         bOK = false;
-                        throw new Exception("The ball numbers must be between 1 and 49");
+                        throw new ArgumentException("The ball numbers must be between 1 and 49");
                     }
 
                 }

@@ -29,18 +29,32 @@ namespace UnitTestTickets
         }
 
         [TestMethod]
-        public void TestBallNumber()
+        public void TestAllCorrectBallNumbers() 
         {
             //arrange
             LottoT lotTicket = new LottoT();
-            int[] testNumbers = { 77, 88, 54, 3, 4, 5 };
+            int[] testNumbers = { 17, 18, 14, 1, 49, 5 };
 
             //act
             lotTicket.Numbers = testNumbers;
 
             //assert   -  want to check this throws an exception
-            Assert.AreNotEqual(testNumbers, lotTicket.Numbers);  
+            Assert.AreEqual(testNumbers, lotTicket.Numbers);  
             //AssertFailedException.Equals(testNumbers, lotTicket.Numbers);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),
+               "The ball numbers must be between 1 and 49")]
+        public void TestAllWithInvalidBalls()  // can this be refactored to test for example one with zero
+        {
+            //arrange
+            LottoT lotTicket = new LottoT();
+            int[] testNumbers = { 17, 18, 14, 1, 50, 5 };
+
+            //act
+            lotTicket.Numbers = testNumbers;
+
         }
 
         [TestMethod]
