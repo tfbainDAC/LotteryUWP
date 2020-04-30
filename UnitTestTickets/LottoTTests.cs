@@ -28,5 +28,37 @@ namespace UnitTestTickets
             /*******  Note this will fail as the sub class does not call the baseclass constructor */
             /****** add this into notes ****/
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException),
+               "The ball number must be between 1 and 49")]
+        public void TestInvalidBonusBall()
+        {
+            //arrange
+            // Test the bonus ball throws exception for an invalid entry
+            LottoT lotto = new LottoT();
+
+            //act
+            lotto.BonusBall = 88;
+        }
+
+        [TestMethod]
+        public void TestInvalidBonusBallTryCatch()
+        {
+            //arrange
+            // Test the bonus ball throws exception for an invalid entry
+            LottoT lotto = new LottoT();
+            try
+            {
+                //act
+                lotto.BonusBall = 88;
+                Assert.Fail("no exception thrown");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is ArgumentException);
+                Assert.AreEqual(ex.Message, "The ball number must be between 1 and 49");
+            }
+        }
     }
 }
