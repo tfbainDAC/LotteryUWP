@@ -38,9 +38,9 @@ namespace UnitTestTickets
             //act
             lotTicket.Numbers = testNumbers;
 
-            //assert   -  want to check this throws an exception
+            //assert   -  check numbers are set correctly
             Assert.AreEqual(testNumbers, lotTicket.Numbers);  
-            //AssertFailedException.Equals(testNumbers, lotTicket.Numbers);
+
         }
 
         [TestMethod]
@@ -55,6 +55,14 @@ namespace UnitTestTickets
             //act
             lotTicket.Numbers = testNumbers;
 
+        }
+
+        [TestMethod]
+        public void TestValidBonusBall()
+        {
+            LottoT lotto = new LottoT();
+            lotto.BonusBall = 1;
+            Assert.AreEqual(1, lotto.BonusBall);
         }
 
         [TestMethod]
