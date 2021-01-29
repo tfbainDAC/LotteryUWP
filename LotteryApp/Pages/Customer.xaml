@@ -19,8 +19,7 @@
                         <!-- changes colour of email to yellow -->
                         <Setter Target="txtEmail.Background"
                                 Value="Yellow"/>
-                        <Setter Target="InnerGrid.Width"
-                                Value="auto"/>
+                        <!-- sets the innergrid to stretch to the width of the outergrid (it's parent)-->
                         <Setter Target="InnerGrid.HorizontalAlignment"
                                 Value="stretch"/>
                     </VisualState.Setters>
@@ -50,7 +49,7 @@
                         <Setter Target="txtEmail.Background"
                                 Value="Orange"/>
                         <Setter Target="InnerGrid.Width"
-                                Value="600"/>
+                                Value="1000"/>
                         <Setter Target="InnerGrid.HorizontalAlignment"
                                 Value="center"/>
 
@@ -63,9 +62,6 @@
 
        <!-- <Grid x:Name="InnerGrid" HorizontalAlignment="Center" Width="600">-->
         <Grid x:Name="InnerGrid" >
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -113,31 +109,31 @@
             </Border>
             <!-- column 0/1 row 0-->
             <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
-            <StackPanel x:Name="sp" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel x:Name="sp" Grid.Row="1" VerticalAlignment="Center" >
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
-                <TextBox x:Name="txtEmail" HorizontalAlignment="Center" PlaceholderText="Enter Customer Email" FontSize ="20" 
-                     Width="{Binding ElementName=InnerGrid, Path=Width}"
+                <TextBox x:Name="txtEmail" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Email" FontSize ="20" 
                      Margin="10"
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="White" BorderBrush="White" 
                      extensions:TextBoxRegex.ValidationType="Email"
                      extensions:TextBoxRegex.ValidationMode="Forced"   />
             
             </StackPanel>
-            <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" >
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
-                <TextBox x:Name="txtName" HorizontalAlignment="center" PlaceholderText="Enter Customer Name" FontSize ="20" 
-                         Width="{Binding ElementName=InnerGrid, Path=Width}"
-                         Margin="10" 
+
+                <TextBox x:Name="txtName" HorizontalAlignment="stretch" PlaceholderText="Enter Customer Name" FontSize ="20" 
+                          Margin="10" 
                          Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White"
                          extensions:TextBoxRegex.Regex="^[a-zA-Z ]*$"
                          extensions:TextBoxRegex.ValidationMode="Dynamic"/>
             </StackPanel>
-            <StackPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="3" VerticalAlignment="Center" >
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
-                <TextBox x:Name="txtPhone" HorizontalAlignment="Center" PlaceholderText="Enter Customer Phone" FontSize ="20" 
-                          Width="{Binding ElementName=InnerGrid, Path=Width}"
+                <TextBox x:Name="txtPhone" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Phone" FontSize ="20" 
                          Margin="10"
+
                      Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" 
+
                          extensions:TextBoxRegex.ValidationType="PhoneNumber"
                          extensions:TextBoxRegex.ValidationMode="Forced"/>
 
