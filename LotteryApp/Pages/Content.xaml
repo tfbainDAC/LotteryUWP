@@ -85,7 +85,7 @@
         <TextBox  extensions:TextBoxRegex.ValidationMode="Forced"
             extensions:TextBoxRegex.ValidationType="Decimal" />
         </StackPanel>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="3">
             <TextBlock Text="Email Validation" TextWrapping="Wrap"/>
             <TextBlock Text="uses extension TextBoxRegex which is in the Microsoft.Toolkit.UWP.UI found in nuGET packages" TextWrapping="Wrap"/>
             <TextBlock Text="Also created folder Common with cs file, code used for isValid which was found in SampleApp see tutorial" TextWrapping="Wrap"/>

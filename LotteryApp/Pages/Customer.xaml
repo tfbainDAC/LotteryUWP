@@ -120,6 +120,7 @@
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" >
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
+
                 <TextBox x:Name="txtName" HorizontalAlignment="stretch" PlaceholderText="Enter Customer Name" FontSize ="20" 
                           Margin="10" 
                          Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White"
@@ -130,7 +131,9 @@
                 <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
                 <TextBox x:Name="txtPhone" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Phone" FontSize ="20" 
                          Margin="10"
-                         Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" 
+
+                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" 
+
                          extensions:TextBoxRegex.ValidationType="PhoneNumber"
                          extensions:TextBoxRegex.ValidationMode="Forced"/>
 
