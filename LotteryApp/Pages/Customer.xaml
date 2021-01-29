@@ -49,7 +49,7 @@
                         <Setter Target="txtEmail.Background"
                                 Value="Orange"/>
                         <Setter Target="InnerGrid.Width"
-                                Value="600"/>
+                                Value="1000"/>
                         <Setter Target="InnerGrid.HorizontalAlignment"
                                 Value="center"/>
 
