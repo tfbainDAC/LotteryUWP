@@ -8,6 +8,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+   
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="DarkSlateGray" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property ="FontSize" Value ="20" />
+        </Style>
+        <DataTemplate x:Key="TextHeaderTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding}"
+                   TextWrapping="WrapWholeWords"
+                   Foreground="White" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   FontSize="25"/>
+            </StackPanel>
+        </DataTemplate>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="#FF191818" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property ="FontSize" Value ="25" />
+        </Style>
+    </Page.Resources>
     <Grid x:Name="outerGrid">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -108,35 +134,33 @@
                 </Border.Background>
             </Border>
             <!-- column 0/1 row 0-->
+            
             <TextBlock Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Customer"/>
             <StackPanel x:Name="sp" Grid.Row="1" VerticalAlignment="Center" >
-                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Email"/>
-                <TextBox x:Name="txtEmail" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Email" FontSize ="20" 
-                     Margin="10"
-                     Foreground="DarkSlateGray" TextWrapping="Wrap" Background="White" BorderBrush="White" 
+            <TextBox x:Name="txtEmail" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Email"  
+                     Header="Email"
+                     HeaderTemplate="{StaticResource TextHeaderTemplate}"
                      extensions:TextBoxRegex.ValidationType="Email"
                      extensions:TextBoxRegex.ValidationMode="Forced"   />
             
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" >
-                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Name"/>
-                <TextBox x:Name="txtName" HorizontalAlignment="stretch" PlaceholderText="Enter Customer Name" FontSize ="20" 
-                          Margin="10" 
-                         Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White"
+                 <TextBox x:Name="txtName" HorizontalAlignment="stretch" PlaceholderText="Enter Customer Name" 
+                         Header="Name"
+                         HeaderTemplate="{StaticResource TextHeaderTemplate}"                        
                          extensions:TextBoxRegex.Regex="^[a-zA-Z ]*$"
                          extensions:TextBoxRegex.ValidationMode="Dynamic"/>
             </StackPanel>
             <StackPanel Grid.Row="3" VerticalAlignment="Center" >
-                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25" Text="Phone"/>
-                <TextBox x:Name="txtPhone" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Phone" FontSize ="20" 
-                         Margin="10"
-                         Foreground="DarkSlateGray" TextWrapping="Wrap" Background="white" BorderBrush="White" 
+                <TextBox x:Name="txtPhone" HorizontalAlignment="Stretch" PlaceholderText="Enter Customer Phone" 
+                         Header="Phone"
+                         HeaderTemplate="{StaticResource TextHeaderTemplate}"
                          extensions:TextBoxRegex.ValidationType="PhoneNumber"
                          extensions:TextBoxRegex.ValidationMode="Forced"/>
 
                 <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center">
-                    <Button x:Name="btnCreate" Click="OnClick_btnCreate" Foreground="#FF191818" FontSize ="25" Margin="3" Content="Create"/>
-                    <Button x:Name="btnCancel" Click="OnClick_btnCancel" Foreground="#FF191818" FontSize ="25" Margin="3" Content="Cancel"/>
+                    <Button x:Name="btnCreate" Click="OnClick_btnCreate" Content="Create"/>
+                    <Button x:Name="btnCancel" Click="OnClick_btnCancel" Content="Cancel"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
